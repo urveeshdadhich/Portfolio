@@ -1,0 +1,1230 @@
+/* Base Styles */
+:root {
+    /* Theme Variables - Work Mode */
+    --work-bg-color: #f5f7f9;
+    --work-text-color: #555555;
+    --work-text-dark: #333333;
+    --work-accent-color: #4682B4;
+    --work-muted-color: #888888;
+    --work-card-bg: #f0f2f5;
+    --work-card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --work-card-hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    
+    /* Theme Variables - Play Mode */
+    --play-bg-color: #ffffff;
+    --play-text-color: #000000;
+    --play-text-dark: #000000;
+    --play-accent-color: #FF69B4;
+    --play-secondary-color: #00CED1;
+    --play-tertiary-color: #FFD700;
+    --play-muted-color: #666666;
+    --play-card-bg: #ffffff;
+    --play-card-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    --play-card-hover-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    
+    /* Common Variables */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --border-radius: 12px;
+    --transition-fast: all 0.3s ease;
+    --transition-medium: all 0.5s ease;
+    --transition-slow: all 0.8s ease;
+    
+    /* Active Theme Variables (defaults to work mode) */
+    --bg-color: var(--work-bg-color);
+    --text-color: var(--work-text-color);
+    --text-dark: var(--work-text-dark);
+    --accent-color: var(--work-accent-color);
+    --muted-color: var(--work-muted-color);
+    --card-bg: var(--work-card-bg);
+    --card-shadow: var(--work-card-shadow);
+    --card-hover-shadow: var(--work-card-hover-shadow);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #f0f8ff;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    transition: var(--transition-medium);
+    will-change: background-color, color;
+}
+
+body {
+    position: relative; /* Ensure the body is scrollable */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Theme Switching */
+body.work-mode {
+    --bg-color: var(--work-bg-color);
+    --text-color: var(--work-text-color);
+    --text-dark: var(--work-text-dark);
+    --accent-color: var(--work-accent-color);
+    --muted-color: var(--work-muted-color);
+    --card-bg: var(--work-card-bg);
+    --card-shadow: var(--work-card-shadow);
+    --card-hover-shadow: var(--work-card-hover-shadow);
+}
+
+body.play-mode {
+    --bg-color: var(--play-bg-color);
+    --text-color: var(--play-text-color);
+    --text-dark: var(--play-text-dark);
+    --accent-color: var(--play-accent-color);
+    --muted-color: var(--play-muted-color);
+    --card-bg: var(--play-card-bg);
+    --card-shadow: var(--play-card-shadow);
+    --card-hover-shadow: var(--play-card-hover-shadow);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Background Shapes */
+.background-shapes,
+.play-mode-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Darker Background Shapes */
+.shape {
+    position: absolute;
+    background-color: rgba(100, 100, 100, 0.2); /* Darker color */
+    border-radius: 8px;
+    transform: rotate(15deg);
+    transition: transform 0.5s ease, background-color 0.3s ease, opacity 0.5s ease;
+}
+
+.shape:hover {
+    background-color: rgba(100, 100, 100, 0.3); /* Slightly darker on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.play-mode .background-shapes {
+    opacity: 0;
+}
+
+.shape-1 {
+    width: 60px;
+    height: 60px;
+    top: 15%;
+    left: 15%;
+}
+
+.shape-2 {
+    width: 40px;
+    height: 40px;
+    top: 25%;
+    right: 20%;
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    left: 30%;
+}
+
+.shape-4 {
+    width: 50px;
+    height: 50px;
+    top: 20%;
+    right: 35%;
+}
+
+.shape-5 {
+    width: 70px;
+    height: 70px;
+    top: 90%;
+    right: 55%;
+}
+
+.shape-6 {
+    width: 45px;
+    height: 45px;
+    top: 70%;
+    left: 20%;
+}
+
+.shape-6 {
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    left: 15%;
+}
+
+.shape-6 {
+    width: 45px;
+    height: 45px;
+    top: 70%;
+    left: 36%;
+}
+
+/* Play Mode Shapes */
+.play-mode-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.play-mode .play-mode-shapes {
+    opacity: 0.5;
+}
+
+.play-shape {
+    position: absolute;
+    border-radius: 50%; /* Make them circular */
+    transition: transform 1.5s ease, background-color 1.5s ease, opacity 1.5s ease; /* Slower animation */
+    opacity: 0.3; /* Subtle opacity for background shapes */
+}
+
+/* Adjusted sizes, positions, and colors for play mode shapes */
+.play-shape-1 {
+    width: 40px;
+    height: 40px;
+    top: 5%;
+    left: 10%;
+    background-color: rgba(255, 99, 132, 0.5); /* Light pink */
+}
+
+.play-shape-2 {
+    width: 50px;
+    height: 50px;
+    top: 15%;
+    right: 15%;
+    background-color: rgba(54, 162, 235, 0.5); /* Light blue */
+}
+
+.play-shape-3 {
+    width: 35px;
+    height: 35px;
+    top: 25%;
+    left: 25%;
+    background-color: rgba(153, 102, 255, 0.5); /* Light purple */
+}
+
+.play-shape-4 {
+    width: 60px;
+    height: 60px;
+    top: 35%;
+    right: 10%;
+    background-color: rgba(255, 206, 86, 0.5); /* Light yellow */
+}
+
+.play-shape-5 {
+    width: 45px;
+    height: 45px;
+    top: 45%;
+    left: 35%;
+    background-color: rgba(75, 192, 192, 0.5); /* Light teal */
+}
+
+.play-shape-6 {
+    width: 50px;
+    height: 50px;
+    top: 55%;
+    right: 30%;
+    background-color: rgba(255, 159, 64, 0.5); /* Light orange */
+}
+
+.play-shape-7 {
+    width: 40px;
+    height: 40px;
+    top: 65%;
+    left: 10%;
+    background-color: rgba(201, 203, 207, 0.5); /* Light gray */
+}
+
+.play-shape-8 {
+    width: 50px;
+    height: 50px;
+    top: 75%;
+    right: 15%;
+    background-color: rgba(54, 162, 235, 0.5); /* Light blue */
+}
+
+.play-shape-9 {
+    width: 60px;
+    height: 60px;
+    top: 85%;
+    left: 20%;
+    background-color: rgba(255, 99, 132, 0.5); /* Light pink */
+}
+
+.play-shape-10 {
+    width: 50px;
+    height: 50px;
+    top: 95%;
+    right: 25%;
+    background-color: rgba(153, 102, 255, 0.5); /* Light purple */
+}
+
+.play-mode .play-mode-shapes {
+    position: fixed; /* Fix the shapes relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5; /* Ensure shapes are visible in play mode */
+    transition: opacity 0.8s ease;
+}
+
+.play-mode .play-shape {
+    position: fixed; /* Fix each shape's position */
+    border-radius: 50%; /* Keep them circular */
+    transition: transform 1.5s ease, background-color 1.5s ease, opacity 1.5s ease; /* Slower animation */
+    opacity: 0.3; /* Subtle opacity for background shapes */
+}
+
+.work-mode .background-shapes {
+    position: fixed; /* Fix the shapes relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 1; /* Ensure shapes are visible in work mode */
+    transition: opacity 0.8s ease;
+}
+
+.work-mode .shape {
+    position: fixed; /* Fix each shape's position */
+    border-radius: 8px; /* Keep them square with rounded corners */
+    background-color: rgba(50, 50, 50, 0.376); /* Darker gray */
+    transition: transform 0.5s ease, background-color 0.3s ease, opacity 0.5s ease;
+    opacity: 1 /* Slightly increase opacity for a darker effect */
+}
+
+/* Example fixed positions for shapes in work mode */
+.shape-1 {
+    width: 60px;
+    height: 60px;
+    top: 15%;
+    left: 15%;
+    background-color: rgba(100, 100, 100, 0.2); /* Gray */
+}
+
+.shape-2 {
+    width: 40px;
+    height: 40px;
+    top: 25%;
+    right: 20%;
+    background-color: rgba(100, 100, 100, 0.2); /* Gray */
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    top: 40%;
+    left: 30%;
+    background-color: rgba(100, 100, 100, 0.2); /* Gray */
+}
+
+.shape-4 {
+    width: 50px;
+    height: 50px;
+    top: 20%;
+    right: 35%;
+    background-color: rgba(100, 100, 100, 0.2); /* Gray */
+}
+
+.shape-5 {
+    width: 70px;
+    height: 70px;
+    top: 60%;
+    right: 25%;
+    background-color: rgba(100, 100, 100, 0.2); /* Gray */
+}
+
+/* Refined Navbar Styles */
+header {
+    position: fixed; /* Fix the navbar at the top */
+    top: 20px; /* Adjust the distance from the top */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Center alignment */
+    width: 97%; /* Adjust the width of the navbar */
+    max-width: 2000px; /* Limit the maximum width */
+    height: 80px; /* Increased height for better visibility */
+    background-color: transparent; /* Keep it transparent */
+    border-radius: 40px; /* Slightly larger pill shape */
+    box-shadow: none; /* Remove shadow if not needed */
+    z-index: 1000; /* Ensure it stays above other elements */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px; /* Increased padding for better spacing */
+    transition: var(--transition-fast); /* Smooth transitions */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Navbar Buttons Hover Animation */
+nav a {
+    position: relative;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600; /* Slightly bolder font */
+    font-size: 18px; /* Increased font size for better readability */
+    padding: 10px 16px; /* Adjusted padding for better spacing */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    transform: translateY(-4px); /* Slightly more pronounced pop-up effect */
+    color: var(--accent-color); /* Change color on hover */
+}
+
+/* Remove box-shadow or background-color to avoid square effect */
+nav a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transition: width 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--card-bg);
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.avatar:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover */
+    transform: translateY(-2px); /* Optional: slight lift effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Navbar Toggle Hover Animation */
+.mode-toggle {
+    position: relative;
+    display: flex;
+    background-color: #eceff1; /* Replace with your desired color */
+    border-radius: 40px; /* Larger toggle button */
+    padding: 6px; /* Increased padding for better spacing */
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+    border: 2px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mode-toggle:hover {
+    transform: translateY(-4px); /* Slightly more pronounced pop-up effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.toggle-option {
+    position: relative;
+    z-index: 2;
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: var(--transition-fast);
+}
+
+.toggle-option[data-mode="work"].active {
+    color: var(--text-dark);
+}
+
+.toggle-option[data-mode="play"].active {
+    color: var(--text-dark);
+}
+
+/* Gradient color for the "play" button when active */
+.toggle-option[data-mode="play"].active {
+    background: linear-gradient(90deg, #6872ff, #ba60ff, #ff54f9); /* Gradient colors */
+    color: #ffffff; /* White text for contrast */
+    border-radius: 20px; /* Optional: Add rounded corners */
+    padding: 8px 20px; /* Ensure consistent padding */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+.toggle-indicator {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: calc(100% - 8px);
+    width: calc(50% - 4px);
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 1;
+}
+
+.play-mode .toggle-indicator {
+    transform: translateX(100%);
+}
+
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-color);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Subtle layered shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: translateY(-3px); /* Slight pop-up effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1); /* Cleaner and consistent hover shadow */
+    background-color: rgba(0, 0, 0, 0.05); /* Subtle background change */
+}
+
+/* Hamburger Icon */
+.hamburger {
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-dark);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-dark);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger::before {
+    transform: translateY(-8px);
+}
+
+.hamburger::after {
+    transform: translateY(8px);
+}
+
+/* Morph to Close Button */
+.menu-open .hamburger {
+    background-color: transparent; /* Hide the middle bar */
+}
+
+.menu-open .hamburger::before {
+    transform: rotate(45deg); /* Rotate to form an X */
+}
+
+.menu-open .hamburger::after {
+    transform: rotate(-45deg); /* Rotate to form an X */
+}
+
+.menu-toggle:hover .hamburger,
+.menu-toggle:hover .hamburger::before,
+.menu-toggle:hover .hamburger::after {
+    background-color: var(--accent-color); /* Change color on hover */
+}
+
+/* Hero Section */
+.hero {
+    position: relative; /* Make the hero section the positioning context */
+    padding: 220px 0 40px; /* Increase the top padding to push it down */
+    text-align: center;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+    transition: var(--transition-medium);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.play-mode h1 {
+    background: linear-gradient(90deg, #0040ff, #a36aff, #ff0059); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+    text-fill-color: transparent; /* For non-WebKit browsers */
+    transition: var(--transition-medium); /* Smooth transition when switching modes */
+}
+
+.work-mode h1 {
+    background: linear-gradient(90deg, #ffffff, #525252, #000000); /* Grayscale gradient */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+    text-fill-color: transparent; /* For non-WebKit browsers */
+    transition: var(--transition-medium); /* Smooth transition when switching modes */
+}
+
+.location {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted-color);
+    font-size: 16px;
+    margin-bottom: 24px;
+    transition: var(--transition-medium);
+    animation: fadeInUp 0.8s ease 0.1s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.location svg {
+    stroke: currentColor;
+}
+
+.bio {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition-medium);
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.bio a {
+    color: var(--text-dark);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.bio a:hover {
+    border-bottom-color: var(--text-dark);
+}
+
+.work-bio {
+    display: block;
+}
+
+.play-bio {
+    display: none;
+}
+
+.play-mode .work-bio {
+    display: none;
+}
+
+.play-mode .play-bio {
+    display: block;
+}
+
+/* Projects Section */
+.projects {
+    padding: 80px 0;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    transition: var(--transition-medium);
+}
+
+.work-projects {
+    display: grid;
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
+.play-projects {
+    display: none; /* Completely remove from layout */
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.play-mode .work-projects {
+    display: none; /* Completely remove from layout */
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.play-mode .play-projects {
+    display: grid; /* Make it visible */
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
+.project-card {
+    background-color: #eceff1;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                background-color 0.15s ease; /* Smooth and fast transitions */
+    transform: scale(1); /* Default scale */
+    opacity: 0;
+    will-change: transform, opacity, box-shadow, background-color;
+    width: 80%; /* Slightly narrower */
+    height: 450px; /* Taller */
+    margin: 0 auto;
+}
+
+.project-card.in-view {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    box-shadow: var(--card-hover-shadow); /* Add a stronger shadow */
+    background-color: rgb(255, 255, 255); /* Subtle color change on hover */
+}
+
+.play-mode .project-card {
+    border: none;
+}
+
+.play-mode .project-card:nth-child(2) {
+    border-color: var(--play-secondary-color);
+}
+
+.project-content {
+    padding: 40px;
+    flex: 1;
+}
+
+.project-logo {
+    width: 40px;
+    height: 40px;
+    /* background-color: #FFFC00;  */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 24px; */
+    transition: var(--transition-fast);
+}
+
+.snapchat-logo {
+    width: 90px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    transition: var(--transition-medium);
+}
+
+.project-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: var(--muted-color);
+    font-size: 14px;
+    transition: var(--transition-medium);
+}
+
+.company {
+    font-weight: 500;
+}
+
+.project-description {
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.6;
+    transition: var(--transition-medium);
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+    padding: 8px 16px;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: var(--transition-fast);
+}
+
+.read-more:hover {
+    background-color: var(--text-dark);
+    color: var(--bg-color);
+}
+
+.project-image {
+    flex: 1.5;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-fast);
+}
+
+/* About Page Styles */
+.about-page h1 {
+    margin-bottom: 48px;
+}
+
+.about-section {
+    padding: 80px 0;
+}
+
+/* Gradient color for the "About Me" text */
+.about-section h1 {
+    font-size: 66px; /* Adjust font size as needed */
+    font-weight: 600;
+    background: linear-gradient(0deg, #bebebe, #7d7d7d, #000000); /* Gradient colors */
+    -webkit-background-clip: text; /* Clip the gradient to the text */
+    -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
+    text-fill-color: transparent; /* For non-WebKit browsers */
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.about-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-medium);
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.about-text {
+    color: var(--text-color);
+}
+
+.about-text h2 {
+    margin-bottom: 24px;
+    font-size: 36px;
+}
+
+.about-text h3 {
+    margin: 32px 0 16px;
+    font-size: 24px;
+    color: var(--text-dark);
+}
+
+.about-text p {
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.about-text a {
+    color: var(--accent-color);
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.about-text a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
+.about-cta {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--accent-color);
+    color: white;
+    font-weight: 500;
+    border-radius: 30px;
+    transition: var(--transition-fast);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Work-mode specific style for the "Get in touch" button */
+body.work-mode .cta-button {
+    background-color: #808080; /* Normal gray color */
+    color: #ffffff; /* White text for contrast */
+    border: none; /* Optional: Remove border if any */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+body.work-mode .cta-button:hover {
+    background-color: #696969; /* Slightly darker gray on hover */
+    color: #ffffff; /* Keep text white */
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #000000; /* Replace with your desired color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+body.play-mode .about-section h1 {
+    background: linear-gradient(90deg, #ff9ea0, #4c00ff, #6200ff); /* Play mode gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+.back-link:hover {
+    color: #ff5733; /* Replace with your desired hover color */
+    text-decoration: none; /* Ensure underline is not added on hover */
+}
+
+a.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #404040; /* Default color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+a.back-link:hover {
+    color: #000000; /* Hover color */
+    text-decoration: none; 
+}
+
+/* Footer */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    transition: var(--transition-medium);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.social-links a {
+    color: var(--muted-color);
+    transition: var(--transition-fast);
+}
+
+.social-links a:hover {
+    color: var(--text-dark);
+}
+
+.copyright {
+    font-size: 14px;
+    color: var(--muted-color);
+    transition: var(--transition-medium);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Responsive Styles */
+@media (min-width: 992px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 48px;
+    }
+    
+    .project-card {
+        flex-direction: column;
+    }
+    
+    .project-content {
+        padding: 32px;
+    }
+    
+    .project-image {
+        height: 300px;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .about-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-center {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        font-size: 40px;
+    }
+    
+    .hero {
+        padding: 60px 0 30px;
+    }
+    
+    .projects {
+        padding: 60px 0;
+    }
+    
+    .project-content {
+        padding: 24px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    .side-menu {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 36px;
+    }
+    
+    .bio {
+        font-size: 16px;
+    }
+    
+    .project-image {
+        height: 240px;
+    }
+    
+    .mode-toggle {
+        transform: scale(0.9);
+    }
+    
+    .about-text h2 {
+        font-size: 30px;
+    }
+    
+    .about-text h3 {
+        font-size: 22px;
+    }
+    
+    .about-text p {
+        font-size: 16px;
+    }
+    
+    .about-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* Updated Glassmorphism Menu Styles */
+.menu-content {
+    position: fixed; /* Fixed position to stay relative to the viewport */
+    top: 32%; /* Center vertically */
+    left: 85%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    background: rgb(255, 255, 255);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.433);
+    padding: 16px;
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    width: 240px; /* Slightly wider for better spacing */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for glass effect */
+}
+
+.menu-content.active {
+    display: block; /* Show when active */
+}
+
+.menu-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-content li {
+    margin-bottom: 12px;
+}
+
+.menu-content li:last-child {
+    margin-bottom: 0;
+}
+
+.menu-content a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px; /* Add padding for better spacing */
+    border-radius: 8px; /* Add a subtle rounded effect */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-content a:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Add a hover effect */
+    color: var(--accent-color);
+}
+
+.close-menu {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.close-menu:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
