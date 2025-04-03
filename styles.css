@@ -600,7 +600,7 @@ nav a:hover::after {
 /* Hero Section */
 .hero {
     position: relative; /* Make the hero section the positioning context */
-    padding: 220px 0 40px; /* Increase the top padding to push it down */
+    padding: 250px 0 40px; /* Increase the top padding to push it down */
     text-align: center;
 }
 
@@ -1093,12 +1093,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .nav-center {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-    }
-    
     h1 {
         font-size: 40px;
     }
@@ -1227,4 +1221,88 @@ footer {
 
 .close-menu:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Add to the bottom of your CSS file - these changes are minimal and won't disrupt your design */
+
+/* Simple viewport meta tag - add to HTML head if not present */
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  header {
+    width: 90%;
+    padding: 0 16px;
+  }
+  
+  /* Center mode toggle on mobile */
+  .nav-center {
+    position: relative;
+    left: auto;
+    transform: none;
+    margin: 0 auto;
+  }
+  
+  /* Hero section adjustments */
+  .hero {
+    padding: 120px 0 30px;
+  }
+  
+  h1 {
+    font-size: 42px;
+  }
+  
+  .bio br {
+    display: none; /* Remove line breaks in bio for better text flow */
+  }
+  
+  /* Project card adjustments */
+  .project-card {
+    width: 95%;
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .project-image {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Smaller screens */
+  h1 {
+    font-size: 32px;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image {
+    max-width: 100%;
+  }
+  
+  .about-section h1 {
+    font-size: 42px;
+  }
+  
+  /* Make toggle buttons easier to tap */
+  .toggle-option {
+    padding: 8px 15px;
+  }
+  
+  .mode-toggle {
+    transform: scale(0.95);
+  }
+}
+
+/* Fix menu-content position on mobile */
+@media (max-width: 768px) {
+  .menu-content {
+    left: 50%;
+    top: 50%;
+    width: 85%;
+    max-width: 300px;
+  }
 }
